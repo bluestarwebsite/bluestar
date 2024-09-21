@@ -1,17 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { MagnetButton } from "~/components/button";
 
 export default function HomePage() {
   return (
-    <div className="flex h-screen w-screen">
-      <Link href="/home" className="mx-auto my-auto">
-        <Image
-          src="/logo.png"
-          alt="Bluestar Logo"
-          width={200}
-          height={200}
-          className="transition-transform duration-500 ease-in-out hover:scale-110"
-        />
+    <div className="grid h-screen w-screen place-content-center">
+      <Link href="/home">
+        <MagnetButton />
       </Link>
     </div>
   );

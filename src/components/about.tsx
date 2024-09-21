@@ -37,7 +37,7 @@ const JustinSticky = () => {
         </div>
         <div className="flex h-screen w-full">
           <div className="mx-auto my-auto p-4">
-            <p className="text-white">
+            <p className="ml-8 text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
               risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
               nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
@@ -71,7 +71,7 @@ const JustinSticky = () => {
         </div>
         <div className="flex h-screen w-full items-center justify-center">
           <div className="mx-auto my-auto p-4">
-            <p className="text-white">
+            <p className="mr-8 text-white">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
               risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
               nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
