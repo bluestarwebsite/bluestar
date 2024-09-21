@@ -86,7 +86,7 @@ const Form = ({
 
       {/* Info */}
       <div className="mb-6">
-        <p className="mb-2 text-2xl">I'd love to ask about...</p>
+        <p className="mb-2 text-2xl">I love to ask about...</p>
         <textarea
           placeholder="Whatever your heart desires :)"
           className={`${
