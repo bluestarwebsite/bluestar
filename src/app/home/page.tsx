@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-
-import { ChevronDown } from "lucide-react";
+import { About } from "~/components/about";
 
 export default function HomePage() {
   return (
@@ -23,17 +22,8 @@ export default function HomePage() {
           Services
         </h1>
       </div>
-      <div className="flex h-screen w-screen flex-row outline outline-white">
-        <div>
-          <Image
-            src="/justin.jpg"
-            alt="service1"
-            width={400}
-            height={400}
-            className="rounded-full"
-          />
-        </div>
-        <div></div>
+      <div className="h-[200vh] w-screen flex-row">
+        <About />
       </div>
       <div className="flex h-screen w-screen flex-col">
         <h1 className="mx-auto my-auto text-6xl font-bold text-white">
