@@ -1,19 +1,19 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { type Dispatch, type SetStateAction, useState } from "react";
 
-export function ShiftingContactForm() {
+const ShiftingContactForm = () => {
   const [selected, setSelected] = useState<"company" | "individual">(
     "individual",
   );
   return (
-    <section className="my-auto p-4">
+    <section className="p-4">
       <div className="mx-auto flex w-full max-w-6xl flex-col-reverse overflow-hidden rounded-lg shadow-lg lg:flex-row">
         <Form selected={selected} setSelected={setSelected} />
         <Images selected={selected} />
       </div>
     </section>
   );
-}
+};
 
 const Form = ({
   selected,
@@ -25,9 +25,7 @@ const Form = ({
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className={`w-full p-8 text-white transition-colors duration-[750ms] ${
-        selected === "company" ? "bg-indigo-600" : "bg-violet-600"
-      }`}
+      className={`w-full p-8 text-white transition-colors duration-[750ms]`}
     >
       <h3 className="mb-6 text-4xl font-bold">Contact us</h3>
 
@@ -37,9 +35,7 @@ const Form = ({
         <input
           type="text"
           placeholder="Your name..."
-          className={`${
-            selected === "company" ? "bg-indigo-700" : "bg-violet-700"
-          } w-full rounded-md p-2 placeholder-white/70 transition-colors duration-[750ms] focus:outline-0`}
+          className={`w-full rounded-md bg-transparent p-2 placeholder-white/70 transition-colors duration-[750ms] focus:outline-0`}
         />
       </div>
 
@@ -76,9 +72,7 @@ const Form = ({
             <input
               type="text"
               placeholder="Your company name..."
-              className={`${
-                selected === "company" ? "bg-indigo-700" : "bg-violet-700"
-              } w-full rounded-md p-2 placeholder-white/70 transition-colors duration-[750ms] focus:outline-0`}
+              className={`w-full rounded-md bg-transparent p-2 placeholder-white/70 transition-colors duration-[750ms] focus:outline-0`}
             />
           </motion.div>
         )}
@@ -86,12 +80,10 @@ const Form = ({
 
       {/* Info */}
       <div className="mb-6">
-        <p className="mb-2 text-2xl">I love to ask about...</p>
+        <p className="mb-2 text-2xl">Id love to ask about...</p>
         <textarea
           placeholder="Whatever your heart desires :)"
-          className={`${
-            selected === "company" ? "bg-indigo-700" : "bg-violet-700"
-          } min-h-[150px] w-full resize-none rounded-md p-2 placeholder-white/70 transition-colors duration-[750ms] focus:outline-0`}
+          className={`min-h-[150px] w-full resize-none rounded-md bg-transparent p-2 placeholder-white/70 transition-colors duration-[750ms] focus:outline-0`}
         />
       </div>
 
@@ -104,11 +96,7 @@ const Form = ({
           scale: 0.99,
         }}
         type="submit"
-        className={`${
-          selected === "company"
-            ? "bg-white text-indigo-600"
-            : "bg-white text-violet-600"
-        } w-full rounded-lg py-3 text-center text-lg font-semibold transition-colors duration-[750ms]`}
+        className={`w-full rounded-lg bg-[#040121] py-3 text-center text-lg font-semibold text-white transition-colors duration-[750ms]`}
       >
         Submit
       </motion.button>
@@ -127,7 +115,7 @@ const FormSelect = ({
     <div className="w-fit overflow-hidden rounded border-[1px] border-white font-medium">
       <button
         className={`${
-          selected === "individual" ? "text-violet-600" : "text-white"
+          selected === "individual" ? "text-black" : "text-white"
         } relative px-3 py-1.5 text-sm transition-colors duration-[750ms]`}
         onClick={() => setSelected("individual")}
       >
@@ -142,7 +130,7 @@ const FormSelect = ({
       </button>
       <button
         className={`${
-          selected === "company" ? "text-indigo-600" : "text-white"
+          selected === "company" ? "text-black" : "text-white"
         } relative px-3 py-1.5 text-sm transition-colors duration-[750ms]`}
         onClick={() => setSelected("company")}
       >
@@ -194,4 +182,16 @@ const Images = ({ selected }: { selected: "company" | "individual" }) => {
   );
 };
 
+export default ShiftingContactForm;
+
 const BASE_TRANSITION = { ease: "anticipate", duration: 0.75 };
+
+export function Contact() {
+  return (
+    <div className="flex h-screen w-screen flex-col px-32 py-16">
+      <div className="h-full w-full rounded-lg">
+        <ShiftingContactForm />
+      </div>
+    </div>
+  );
+}
