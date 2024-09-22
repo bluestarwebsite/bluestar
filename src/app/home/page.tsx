@@ -24,9 +24,9 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 2 }}
-            className="text-center text-6xl font-bold text-white"
+            className="text-center text-6xl font-bold text-[#035DB7]"
           >
-            Welcome to Bluestar
+            Bluestar Consulting
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -35,7 +35,7 @@ export default function HomePage() {
             onClick={() => {
               serviceRef.current?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="ml-2 cursor-pointer text-xl text-white"
+            className="ml-2 cursor-pointer text-xl text-[#035DB7]"
           >
             Our Services
           </motion.p>
@@ -46,7 +46,7 @@ export default function HomePage() {
             onClick={() => {
               aboutRef.current?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="ml-2 cursor-pointer text-xl text-white"
+            className="ml-2 cursor-pointer text-xl text-[#035DB7]"
           >
             About us
           </motion.p>
@@ -57,7 +57,7 @@ export default function HomePage() {
             onClick={() => {
               contactRef.current?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="ml-2 cursor-pointer text-xl text-white"
+            className="ml-2 cursor-pointer text-xl text-[#035DB7]"
           >
             Contact Us
           </motion.p>

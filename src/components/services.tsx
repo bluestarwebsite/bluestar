@@ -52,7 +52,7 @@ const Card = ({
 }) => {
   return (
     <motion.div whileHover="hover" className="relative h-[300px] w-full">
-      <div className="flex h-1/2 flex-col justify-center bg-black p-6">
+      <div className="flex h-1/2 flex-col justify-center bg-gray-700 p-6">
         <h3 className="mb-2 text-xl font-semibold text-white">{title}</h3>
         <p className="text-sm font-light text-slate-300">{description}</p>
       </div>
