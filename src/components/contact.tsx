@@ -25,7 +25,7 @@ const Form = ({
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
-      className={`w-full p-8 text-white transition-colors duration-[750ms]`}
+      className={`w-full p-8 text-[#035DB7] transition-colors duration-[750ms]`}
     >
       <h3 className="mb-6 text-4xl font-bold">Contact us</h3>
 
@@ -35,7 +35,7 @@ const Form = ({
         <input
           type="text"
           placeholder="Your name..."
-          className={`w-full rounded-md bg-transparent p-2 placeholder-white/70 transition-colors duration-[750ms] focus:outline-0`}
+          className={`w-full rounded-md bg-transparent p-2 placeholder-[#035DB7]/70 transition-colors duration-[750ms] focus:outline-0`}
         />
       </div>
 
@@ -72,7 +72,7 @@ const Form = ({
             <input
               type="text"
               placeholder="Your company name..."
-              className={`w-full rounded-md bg-transparent p-2 placeholder-white/70 transition-colors duration-[750ms] focus:outline-0`}
+              className={`w-full rounded-md bg-transparent p-2 placeholder-[#035DB7]/70 transition-colors duration-[750ms] focus:outline-0`}
             />
           </motion.div>
         )}
@@ -80,10 +80,10 @@ const Form = ({
 
       {/* Info */}
       <div className="mb-6">
-        <p className="mb-2 text-2xl">Id love to ask about...</p>
+        <p className="mb-2 text-2xl">I would love to ask about...</p>
         <textarea
           placeholder="Whatever your heart desires :)"
-          className={`min-h-[150px] w-full resize-none rounded-md bg-transparent p-2 placeholder-white/70 transition-colors duration-[750ms] focus:outline-0`}
+          className={`min-h-[150px] w-full resize-none rounded-md bg-transparent p-2 placeholder-[#035DB7]/70 transition-colors duration-[750ms] focus:outline-0`}
         />
       </div>
 
@@ -96,7 +96,7 @@ const Form = ({
           scale: 0.99,
         }}
         type="submit"
-        className={`w-full rounded-lg bg-[#040121] py-3 text-center text-lg font-semibold text-white transition-colors duration-[750ms]`}
+        className={`w-full rounded-lg bg-gray-500 py-3 text-center text-lg font-semibold text-[#035DB7] transition-colors duration-[750ms]`}
       >
         Submit
       </motion.button>
@@ -115,7 +115,7 @@ const FormSelect = ({
     <div className="w-fit overflow-hidden rounded border-[1px] border-white font-medium">
       <button
         className={`${
-          selected === "individual" ? "text-black" : "text-white"
+          selected === "individual" ? "text-[#035DB7]" : "text-black"
         } relative px-3 py-1.5 text-sm transition-colors duration-[750ms]`}
         onClick={() => setSelected("individual")}
       >
@@ -130,7 +130,7 @@ const FormSelect = ({
       </button>
       <button
         className={`${
-          selected === "company" ? "text-black" : "text-white"
+          selected === "company" ? "text-black" : "text-[#035DB7]"
         } relative px-3 py-1.5 text-sm transition-colors duration-[750ms]`}
         onClick={() => setSelected("company")}
       >
