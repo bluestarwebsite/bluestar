@@ -72,7 +72,7 @@ const Form = ({
             <input
               type="text"
               placeholder="Your company name..."
-              className={`w-full rounded-md bg-transparent p-2 placeholder-[#035DB7]/70 transition-colors duration-[750ms] focus:outline-0`}
+              className={`w-full rounded-md bg-transparent p-2 placeholder-brand-text/70 transition-colors duration-[750ms] focus:outline-0`}
             />
           </motion.div>
         )}
@@ -83,7 +83,7 @@ const Form = ({
         <p className="mb-2 text-2xl">I would love to ask about...</p>
         <textarea
           placeholder="Whatever your heart desires :)"
-          className={`min-h-[150px] w-full resize-none rounded-md bg-transparent p-2 placeholder-[#035DB7]/70 transition-colors duration-[750ms] focus:outline-0`}
+          className={`min-h-[150px] w-full resize-none rounded-md bg-transparent p-2 placeholder-brand-text/70 transition-colors duration-[750ms] focus:outline-0`}
         />
       </div>
 

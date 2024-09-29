@@ -60,7 +60,7 @@ export function MagnetButton() {
         className="pointer-events-none relative z-10 text-7xl text-black transition-all duration-700 ease-out"
       />
 
-      <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-gray-600 transition-transform duration-700 ease-out group-hover:scale-100" />
+      <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-brand-blue transition-transform duration-700 ease-out group-hover:scale-100" />
 
       <motion.svg
         initial={{ rotate: 0 }}
@@ -90,7 +90,7 @@ export function MagnetButton() {
           <textPath
             href="#circlePath"
             fill="black"
-            className="fill-black text-xl font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100"
+            className="fill-white text-xl font-light uppercase opacity-0 transition-opacity duration-700 ease-out group-hover:opacity-100"
           >
             Click to Begin
           </textPath>

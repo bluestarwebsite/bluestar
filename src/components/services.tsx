@@ -1,20 +1,32 @@
 import { motion } from "framer-motion";
-import { FiArrowUpRight } from "react-icons/fi";
 
 export function Services() {
   return (
-    <section className="p-8">
+    <section className="my-auto rounded-md p-8 drop-shadow-lg">
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <Card
-          title="Build"
-          description="We make pretty buildings"
-          imgSrc="https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
-        />
-        <Card
-          title="See?"
-          description="This ones pretty nice"
-          imgSrc="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
-        />
+        <div className="col-span-2 h-[300px] w-full overflow-hidden">
+          <h1 className="text-bold text-2xl">Services</h1>
+          <p className="text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+            elementum, nulla in tincidunt tincidunt, nisi risus lacinia nisi,
+            sit amet auctor nisl nisl eu elit. Donec in ligula eu urna tincidunt
+            ultrices. Sed elementum, nulla in tincidunt tincidunt, nisi risus
+            lacinia nisi, sit amet auctor nisl nisl eu elit. Donec in ligula eu
+            urna tincidunt ultrices. Sed elementum, nulla in tincidunt
+            tincidunt, nisi risus lacinia nisi, sit amet auctor nisl nisl eu
+            elit. Donec in ligula eu urna tincidunt ultrices. Sed elementum,
+            nulla in tincidunt tincidunt, nisi risus lacinia nisi, sit amet
+            auctor nisl nisl eu elit. Donec in ligula eu urna tincidunt
+            ultrices. Sed elementum, nulla in tincidunt tincidunt, nisi risus
+            lacinia nisi, sit amet auctor nisl nisl eu elit. Donec in ligula eu
+            urna tincidunt ultrices. Sed elementum, nulla in tincidunt
+            tincidunt, nisi risus lacinia nisi, sit amet auctor nisl nisl eu
+            elit. Donec in ligula eu urna tincidunt ultrices. Sed elementum,
+            nulla in tincidunt tincidunt, nisi risus lacinia nisi, sit amet
+            auctor nisl nisl eu elit. Donec in ligula eu urna tincidunt
+            ultrices.
+          </p>
+        </div>
         <Card
           title="TALL!"
           description="We can even do TALL buildings"
@@ -51,39 +63,37 @@ const Card = ({
   description: string;
 }) => {
   return (
-    <motion.div whileHover="hover" className="relative h-[300px] w-full">
-      <div className="flex h-1/2 flex-col justify-center bg-gray-700 p-6">
-        <h3 className="mb-2 text-xl font-semibold text-white">{title}</h3>
-        <p className="text-sm font-light text-slate-300">{description}</p>
-      </div>
+    <div className="h-[300px] w-full overflow-hidden">
       <motion.div
-        initial={{
-          top: "0%",
-          right: "0%",
-        }}
-        variants={{
-          hover: {
-            top: "50%",
-            right: "50%",
-          },
-        }}
-        className="absolute inset-0 z-10 bg-slate-200"
+        whileHover="hover"
+        className="relative flex h-[300px] w-full items-center justify-center"
         style={{
           backgroundImage: `url(${imgSrc})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-      />
-      <a
-        href="#"
-        rel="nofollow"
-        className="absolute bottom-0 right-0 z-0 grid h-1/2 w-1/2 place-content-center bg-white text-black transition-colors hover:text-indigo-500"
+        variants={{
+          hover: {
+            scale: 1.1,
+          },
+        }}
       >
-        <div className="flex items-center">
-          <span className="text-xs">MORE</span>
-          <FiArrowUpRight className="text-lg" />
+        <div className="z-20 my-auto flex flex-col">
+          <h3 className="mx-auto text-white">{title}</h3>
+          <p className="mx-auto text-white">{description}</p>
         </div>
-      </a>
-    </motion.div>
+        <motion.div
+          initial={{
+            opacity: 1,
+          }}
+          variants={{
+            hover: {
+              opacity: 0,
+            },
+          }}
+          className="absolute inset-0 z-10 bg-brand-blue"
+        />
+      </motion.div>
+    </div>
   );
 };
