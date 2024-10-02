@@ -33,6 +33,7 @@ export default function HomePage() {
   const [aboutWidth, setAboutWidth] = useState(0);
   const [aboutHeight, setAboutHeight] = useState(0);
   const [logoWidth, setLogoWidth] = useState(0);
+
   const [navHeight, setNavHeight] = useState(0);
 
   const { scrollYProgress } = useScroll({
@@ -62,7 +63,7 @@ export default function HomePage() {
   useEffect(() => {
     window.scrollTo(0, 0);
     if (logoRef.current) {
-      setLogoWidth(logoRef.current.getBoundingClientRect().width);
+      setLogoWidth(logoRef.current.getBoundingClientRect().right);
     }
     if (h1Ref.current) {
       setH1Left(h1Ref.current.getBoundingClientRect().left - logoWidth);
@@ -94,26 +95,30 @@ export default function HomePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
-          className="pb-9 text-center text-6xl font-bold text-[#035DB7]"
+          className="text-center text-6xl font-bold text-[#035DB7]"
           ref={h1Ref}
         >
           Bluestar Consulting
         </motion.h1>
       </div>
       <motion.div
-        className="sticky top-2 z-10 ml-2 flex h-min w-max flex-row rounded-lg bg-gray-400 drop-shadow-lg"
+        className="sticky top-0 z-10 flex h-min w-full flex-row justify-center bg-gray-400 drop-shadow-lg"
         ref={linkDivRef}
         style={{ "--tw-bg-opacity": navBG } as React.CSSProperties}
       >
         <motion.img
           src="/logo.png"
           alt="logo"
-          width={100}
+          width={50}
           height={100}
-          className="sticky top-0"
+          className="sticky top-0 cursor-pointer"
           ref={logoRef}
           style={{ opacity: scrollYProgress }}
+          onClick={() => {
+            window.location.href = "/";
+          }}
         />
+
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -121,7 +126,7 @@ export default function HomePage() {
           onClick={() => {
             serviceRef.current?.scrollIntoView({ behavior: "smooth" });
           }}
-          className={`sticky top-9 z-20 mx-4 h-min w-max cursor-pointer text-xl text-[#035DB7]`}
+          className={`sticky top-3 z-20 mx-4 h-min w-max cursor-pointer text-xl text-[#035DB7]`}
           style={{ x: serviceX }}
           ref={serviceLink}
         >
@@ -134,7 +139,7 @@ export default function HomePage() {
           onClick={() => {
             aboutRef.current?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="sticky top-9 z-20 mx-4 h-min w-max cursor-pointer text-xl text-[#035DB7]"
+          className="sticky top-3 z-20 mx-4 h-min w-max cursor-pointer text-xl text-[#035DB7]"
           style={{ x: aboutX, y: aboutY }}
           ref={aboutLink}
         >
@@ -147,7 +152,7 @@ export default function HomePage() {
           onClick={() => {
             contactRef.current?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="sticky top-9 z-20 mx-4 h-min w-max cursor-pointer text-xl text-[#035DB7]"
+          className="sticky top-3 z-20 mx-4 h-min w-max cursor-pointer text-xl text-[#035DB7]"
           style={{ x: contactX, y: contactY }}
           ref={contactLink}
         >
