@@ -59,7 +59,7 @@ export function Contact() {
               <div
                 className={`${message ? "" : "mx-auto"} flex h-full w-1/2 bg-[url('/cardbg.jpg')] shadow-lg`}
               >
-                <div className="mx-4 my-auto flex h-fit w-full flex-col gap-2 pl-12">
+                <div className="mx-4 my-auto flex h-fit w-full flex-col gap-2 px-12">
                   <FormField
                     control={form.control}
                     name="name"
@@ -76,95 +76,86 @@ export function Contact() {
                     )}
                   />
                   <p className="pl-8 text-gray-600"> Saavy Investor </p>
-                  <div className="flex flex-row">
-                    <div className="flex flex-col">
-                      <div className="no-wrap flex flex-row">
-                        <AnimatePresence>
-                          {selected === "company" && (
-                            <motion.div
-                              initial={{
-                                marginTop: -104,
-                                opacity: 0,
-                              }}
-                              animate={{
-                                marginTop: 0,
-                                opacity: 1,
-                              }}
-                              exit={{
-                                marginTop: -104,
-                                opacity: 0,
-                              }}
-                              transition={BASE_TRANSITION}
-                            >
-                              <div className="flex flex-row">
-                                <Building2 />
-                                <FormField
-                                  control={form.control}
-                                  name="company"
-                                  render={({ field }) => (
-                                    <FormItem>
-                                      <FormControl>
-                                        <Input
-                                          placeholder="Your Company"
-                                          {...field}
-                                        />
-                                      </FormControl>
-                                    </FormItem>
-                                  )}
-                                />
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-
-                      <div className="flex flex-row">
-                        <Mail />
-                        <FormField
-                          control={form.control}
-                          name="email"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormControl>
-                                <Input placeholder="Your Email" {...field} />
-                              </FormControl>
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      <div className="flex flex-row">
-                        <Phone />
-                        <FormField
-                          control={form.control}
-                          name="phone"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormControl>
-                                <Input
-                                  placeholder="Your Phone Number"
-                                  {...field}
-                                />
-                              </FormControl>
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-
-                      <Button
-                        className="rounded-full bg-brand-blue px-4 py-2 text-white"
-                        onClick={() => setMessage(!message)}
-                      >
-                        <MessageCircle />
-                        {`${message ? "Remove" : "Add"} Message`}
-                      </Button>
+                  <div className="flex flex-col">
+                    <div className="no-wrap flex flex-row">
+                      <AnimatePresence>
+                        {selected === "company" && (
+                          <motion.div
+                            initial={{
+                              marginTop: -104,
+                              opacity: 0,
+                            }}
+                            animate={{
+                              marginTop: 0,
+                              opacity: 1,
+                            }}
+                            exit={{
+                              marginTop: -104,
+                              opacity: 0,
+                            }}
+                            transition={BASE_TRANSITION}
+                          >
+                            <div className="flex flex-row">
+                              <Building2 />
+                              <FormField
+                                control={form.control}
+                                name="company"
+                                render={({ field }) => (
+                                  <FormItem>
+                                    <FormControl>
+                                      <Input
+                                        placeholder="Your Company"
+                                        {...field}
+                                      />
+                                    </FormControl>
+                                  </FormItem>
+                                )}
+                              />
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                    <div className="flex flex-col">
-                      {/*<FormSelect
-                        selected={selected}
-                        setSelected={setSelected}
+
+                    <div className="flex flex-row">
+                      <Mail />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input placeholder="Your Email" {...field} />
+                            </FormControl>
+                          </FormItem>
+                        )}
                       />
-                      */}
                     </div>
+                    <div className="flex flex-row">
+                      <Phone />
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input
+                                placeholder="Your Phone Number"
+                                {...field}
+                              />
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <Button
+                      className="rounded-full bg-brand-blue px-4 py-2 text-white"
+                      onClick={() => setMessage(!message)}
+                    >
+                      <MessageCircle />
+                      {`${message ? "Remove" : "Add"} Message`}
+                    </Button>
                   </div>
                 </div>
               </div>

@@ -82,11 +82,8 @@ export default function HomePage() {
       setAboutWidth(aboutLink.current.getBoundingClientRect().width);
       setAboutHeight(aboutLink.current.getBoundingClientRect().height);
     }
-  }, [logoWidth]);
-
-  useEffect(() => {
     console.log(serviceWidth, serviceHeight, aboutWidth, aboutHeight);
-  }, [serviceWidth, serviceHeight, aboutWidth, aboutHeight]);
+  }, [logoWidth, serviceWidth, serviceHeight, aboutWidth, aboutHeight]);
 
   return (
     <div className="flex h-full w-full flex-col">
