@@ -14,6 +14,12 @@ import { About } from "~/components/about";
 import { Contact } from "~/components/contact";
 
 export default function HomePage() {
+  useEffect(() => {
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+  }, []);
+
   const serviceRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
@@ -60,8 +66,11 @@ export default function HomePage() {
   );
   const navBG = useTransform(scrollYProgress, [0, 1], [0, 0.9]);
 
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    console.log("x changed to", latest);
+  });
+
   useEffect(() => {
-    window.scrollTo(0, 0);
     if (logoRef.current) {
       setLogoWidth(logoRef.current.getBoundingClientRect().right);
     }
@@ -83,7 +92,15 @@ export default function HomePage() {
       setAboutHeight(aboutLink.current.getBoundingClientRect().height);
     }
     console.log(serviceWidth, serviceHeight, aboutWidth, aboutHeight);
-  }, [logoWidth, serviceWidth, serviceHeight, aboutWidth, aboutHeight]);
+    console.log(scrollYProgress);
+  }, [
+    logoWidth,
+    serviceWidth,
+    serviceHeight,
+    aboutWidth,
+    aboutHeight,
+    scrollYProgress,
+  ]);
 
   return (
     <div className="flex h-full w-full flex-col">
