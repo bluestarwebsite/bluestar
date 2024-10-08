@@ -104,13 +104,12 @@ export default function HomePage() {
 
   return (
     <div className="flex h-full w-full flex-col">
-      <div className="flex h-[50vh] w-screen flex-col items-center justify-end">
+      <div className="flex h-screen w-screen flex-col items-center justify-end">
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
           className="text-center text-6xl font-bold text-[#035DB7]"
-          ref={h1Ref}
         >
           Bluestar Consulting
         </motion.h1>
@@ -118,7 +117,6 @@ export default function HomePage() {
       <motion.div
         className="sticky top-0 z-10 flex h-min w-full flex-row justify-center bg-gray-400 drop-shadow-lg"
         ref={linkDivRef}
-        style={{ "--tw-bg-opacity": navBG } as React.CSSProperties}
       >
         <motion.img
           src="/logo.png"
