@@ -191,9 +191,9 @@ export default function HomePage() {
               At BlueStar, our mission is to set the gold standard in the
               industry by delivering a level of detail and accuracy that
               surpasses market expectations. We are committed to being the
-              guiding "North Star" for your real estate aspirations and craft
-              creative strategies that are as detailed and precise as they are
-              innovative.
+              guiding &quot;North Star&quot; for your real estate aspirations
+              and craft creative strategies that are as detailed and precise as
+              they are innovative.
             </p>
           ) : null}
         </div>
