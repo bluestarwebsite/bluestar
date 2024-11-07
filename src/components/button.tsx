@@ -60,7 +60,7 @@ export function MagnetButton() {
         className="pointer-events-none relative z-10 text-7xl text-black transition-all duration-700 ease-out"
       />
 
-      <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-brand-blue transition-transform duration-700 ease-out group-hover:scale-100" />
+      <div className="pointer-events-none absolute inset-0 z-0 scale-0 rounded-full bg-gray-200 transition-transform duration-700 ease-out group-hover:scale-100" />
 
       <motion.svg
         initial={{ rotate: 0 }}

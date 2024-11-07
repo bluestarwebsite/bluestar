@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
+import { Input } from "~/components/ui/input";
+import { Textarea } from "~/components/ui/textarea";
 
 export default function HomePage() {
   return (
@@ -107,15 +108,13 @@ export default function HomePage() {
         <div className="w-2/3 bg-[url(/propertybg.webp)] bg-cover bg-center">
           <div className="bg-brand-bg bg-opacity-70"></div>
         </div>
-        <div className="flex h-screen w-1/3 flex-col items-center justify-center gap-y-4">
-          <h1 className="text-center text-5xl font-bold text-white">
-            OUR PROPERTIES
-          </h1>
-          <p className="text-center text-white">
+        <div className="flex h-screen w-1/3 flex-col justify-center gap-y-4 p-8">
+          <h1 className="text-5xl font-bold text-white">OUR PROPERTIES</h1>
+          <p className="text-white">
             The satisfaction and success of our past and current clients testify
             to our commitment and expertise.
           </p>
-          <p className="text-center text-white">
+          <p className="text-white">
             We invite you to review real examples of our case studies here that
             display our accomplishments and the outstanding results we have
             achieved.
@@ -123,24 +122,33 @@ export default function HomePage() {
         </div>
       </div>
       <div className="flex h-screen w-screen flex-col items-center justify-center bg-[url(/contactbg.webp)] bg-cover bg-center">
-        <div className="flex h-4/5 w-4/5 flex-col items-center justify-center rounded-md bg-brand-bg bg-opacity-90 p-4">
-          <h1 className="text-center text-5xl font-bold text-white">
+        <div className="flex h-3/5 w-3/5 flex-col rounded-3xl bg-brand-bg bg-opacity-80 p-16">
+          <h1 className="pb-10 text-center text-5xl font-bold text-white">
             SEND US A MESSAGE
           </h1>
-          <div className="grid h-max w-max grid-cols-2 grid-rows-2">
-            <div className="col-start-1 col-end-1 row-start-1 row-end-1 text-white">
-              <p>First Name:</p>
+          <div className="grid h-max w-max grid-cols-2 grid-rows-2 gap-2 text-nowrap">
+            <div className="col-start-1 col-end-1 row-start-1 row-end-1 flex flex-row text-white">
+              <p className="pt-2">First Name:</p>
+              <Input type="text" placeholder="First Name" />
             </div>
-            <div className="col-start-2 col-end-2 row-start-1 row-end-1 text-white">
-              <p>Last Name:</p>
+            <div className="col-start-2 col-end-2 row-start-1 row-end-1 flex flex-row text-white">
+              <p className="pt-2">Last Name:</p>
+              <Input type="text" placeholder="Last Name" />
             </div>
-            <div className="col-start-1 col-end-1 row-start-2 row-end-2 text-white">
-              <p>Phone:</p>
+            <div className="col-start-1 col-end-1 row-start-2 row-end-2 flex flex-row text-white">
+              <p className="pt-2">Phone:</p>
+              <Input type="text" placeholder="Phone No." />
             </div>
-            <div className="col-start-2 col-end-2 row-start-2 row-end-2 text-white">
-              <p>Email:</p>
+            <div className="col-start-2 col-end-2 row-start-2 row-end-2 flex flex-row text-white">
+              <p className="pt-2">Email:</p>
+              <Input type="email" placeholder="Email" />
             </div>
           </div>
+          <p className="mr-auto italic text-white">Message:</p>
+          <Textarea placeholder="Message" />
+          <button className="mx-auto mt-2 w-max rounded-md bg-brand-blue px-4 py-2 text-white">
+            Send
+          </button>
         </div>
       </div>
       <div className="flex h-max w-screen flex-row justify-center bg-brand-bg">
@@ -155,11 +163,11 @@ export default function HomePage() {
           <h1 className="text-2xl font-semibold text-white">CONTACT</h1>
           <div className="flex flex-row">
             <Phone color="#FFF" />
-            <p className="text-white">+1 (234) 567-8910</p>
+            <p className="ml-2 text-white">+1 (234) 567-8910</p>
           </div>
           <div className="flex flex-row">
             <Mail color="#ffffff" />
-            <p className="text-white">EMAIL@BLUESTAR.COM</p>
+            <p className="ml-2 text-white">EMAIL@BLUESTAR.COM</p>
           </div>
         </div>
       </div>
