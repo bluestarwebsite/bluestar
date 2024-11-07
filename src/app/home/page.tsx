@@ -41,7 +41,9 @@ export default function HomePage() {
 
   const [about, setAbout] = useState("none");
   useEffect(() => {
-    parent.current && autoAnimate(parent.current);
+    if (parent.current) {
+      autoAnimate(parent.current);
+    }
   }, [parent]);
 
   return (
