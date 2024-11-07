@@ -161,10 +161,12 @@ export default function HomePage() {
           </div>
           {about === "expertise" ? (
             <p className="text-white">
-              Based in the vibrant city of Miami, Florida, BlueStar operates on
-              a global scale, catering to clients with diverse needs. Our team
-              is multilingual proficient, allowing us to effectively communicate
-              and cater to clients worldwide.
+              Our team boasts an exceptional academic background, almost all of
+              our members holding specialized post-graduate degrees from
+              top-five institutions such as the Florida International University
+              College of Business. Well-rounded with our education and
+              intentional with our mission, BlueStar infuses its innovative and
+              unique perspectives into each project, proposal, and venture.
             </p>
           ) : null}
           <div className="flex flex-row gap-4">
@@ -186,10 +188,12 @@ export default function HomePage() {
           </div>
           {about === "mission" ? (
             <p className="text-white">
-              Based in the vibrant city of Miami, Florida, BlueStar operates on
-              a global scale, catering to clients with diverse needs. Our team
-              is multilingual proficient, allowing us to effectively communicate
-              and cater to clients worldwide.
+              At BlueStar, our mission is to set the gold standard in the
+              industry by delivering a level of detail and accuracy that
+              surpasses market expectations. We are committed to being the
+              guiding "North Star" for your real estate aspirations and craft
+              creative strategies that are as detailed and precise as they are
+              innovative.
             </p>
           ) : null}
         </div>
@@ -204,31 +208,56 @@ export default function HomePage() {
       <div ref={serviceRef} className="h-screen w-full bg-brand-bg">
         <div className="flex h-full w-screen flex-row">
           <div className="mx-auto w-1/3 bg-[url(/boutiquebg.webp)] bg-cover bg-center">
-            <div className="h-full w-full bg-brand-bg bg-opacity-70 p-8">
+            <div className="group h-full w-full bg-brand-bg bg-opacity-70 p-8 hover:bg-opacity-90 hover:duration-500">
               <h1
                 className={`text-bold text-center text-5xl text-white ${tex.className}`}
               >
                 Boutique
               </h1>
+              <p className="pt-16 text-xl text-white opacity-0 group-hover:opacity-100 group-hover:duration-500">
+                Where traditional brokers often rely on arbitrary comparisons,
+                we conduct thorough, in-depth analyses, making sure you have all
+                vital details about potential investments, from construction
+                history to market dynamics. Our expertise extends to assisting
+                with the nuanced tax treatment of real estate, covering every
+                type and location. When you work with BlueStar, you gain access
+                to comprehensive insights that empower you to make informed,
+                strategic investment decisions.
+              </p>
             </div>
           </div>
           <div className="mx-auto w-1/3 bg-[url(/integrativebg.webp)] bg-cover bg-center">
-            <div className="h-full w-full bg-brand-bg bg-opacity-70 p-8">
+            <div className="group h-full w-full bg-brand-bg bg-opacity-70 p-8 hover:bg-opacity-90 hover:duration-500">
               <h1
                 className={`text-bold text-center text-5xl text-white ${tex.className}`}
               >
                 Integrative
               </h1>
+              <p className="pt-16 text-xl text-white opacity-0 group-hover:opacity-100 group-hover:duration-500">
+                If you are an existing entity seeking to optimize your
+                acquisition strategies and portfolio management, BlueStar
+                seamlessly becomes part of your operations for a comprehensive
+                analysis. Our full-spectrum support ensures your real estate
+                investments align with broader business objectives and
+                consistently deliver the sustained growth and success outlined
+                in your unique strategy.
+              </p>
             </div>
           </div>
 
           <div className="mx-auto w-1/3 bg-[url(/bespokebg.webp)] bg-cover bg-center">
-            <div className="h-full w-full bg-brand-bg bg-opacity-70 p-8">
+            <div className="group h-full w-full bg-brand-bg bg-opacity-70 p-8 hover:bg-opacity-90 hover:duration-500">
               <h1
                 className={`text-bold text-center text-5xl text-white ${tex.className}`}
               >
                 Bespoke
               </h1>
+              <p className="pt-16 text-xl text-white opacity-0 group-hover:opacity-100 group-hover:duration-500">
+                Our bespoke approach delivers tailored strategies aligned with
+                your investment goals and timelines. We work closely with you to
+                understand your unique needs and develop a customized investment
+                plan that is both efficient and profitable.
+              </p>
             </div>
           </div>
         </div>
