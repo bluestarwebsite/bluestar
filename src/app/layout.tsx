@@ -14,10 +14,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>
-        <div className="fixed z-[-2] flex h-screen w-screen bg-white"></div>
-        {children}
-      </body>
+      <body className="bg-brand-bg">{children}</body>
     </html>
   );
 }

@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 export function Services() {
   return (
-    <section className="my-auto rounded-md p-8 drop-shadow-lg">
+    <section className="my-auto overflow-hidden rounded-md p-8 drop-shadow-lg">
       <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="col-span-2 h-[300px] w-full overflow-hidden">
+        <div className="col-span-2 h-full w-full overflow-hidden">
           <h1 className="text-bold text-2xl">Services</h1>
           <p className="text-sm">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
@@ -63,7 +63,7 @@ const Card = ({
   description: string;
 }) => {
   return (
-    <div className="h-[300px] w-full overflow-hidden">
+    <div className="h-full w-full overflow-hidden">
       <motion.div
         whileHover="hover"
         className="relative flex h-[300px] w-full items-center justify-center"
