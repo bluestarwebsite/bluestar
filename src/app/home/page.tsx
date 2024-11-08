@@ -46,13 +46,21 @@ export default function HomePage() {
     }
   }, [parent]);
 
-  const [width, setWidth] = useState<number>(window.innerWidth);
+  const [width, setWidth] = useState<number>(1080);
 
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
   useEffect(() => {
+    // Set the initial width
+    setWidth(window.innerWidth);
+
+    // Define the resize handler
+    function handleWindowSizeChange() {
+      setWidth(window.innerWidth);
+    }
+
+    // Add event listener on mount
     window.addEventListener("resize", handleWindowSizeChange);
+
+    // Clean up the event listener on unmount
     return () => {
       window.removeEventListener("resize", handleWindowSizeChange);
     };
@@ -277,6 +285,9 @@ export default function HomePage() {
         <div className="flex h-full w-full items-center justify-center bg-brand-bg bg-opacity-70 p-16">
           <button
             className={`rounded-lg bg-brand-blue px-8 py-2 text-2xl font-bold text-white ${tex.className}`}
+            onClick={() => {
+              contactRef.current?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             WORK WITH US
           </button>
