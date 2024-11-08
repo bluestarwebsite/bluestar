@@ -1,11 +1,12 @@
 "use client";
 import localFont from "next/font/local";
 import Image from "next/image";
-import { Phone, Mail } from "lucide-react";
+import { Phone, Mail, ArrowUp } from "lucide-react";
 import { Input } from "~/components/ui/input";
 import { Textarea } from "~/components/ui/textarea";
 import { useRef, useState, useEffect } from "react";
 import autoAnimate from "@formkit/auto-animate";
+import Link from "next/link";
 
 const tex = localFont({
   src: [
@@ -72,7 +73,9 @@ export default function HomePage() {
     <div className="flex h-max w-screen flex-col">
       <div className="h-screen w-screen bg-[url(/topsplashbg.webp)] bg-cover bg-center bg-no-repeat">
         <div className="flex h-screen w-screen flex-col items-center justify-center bg-brand-bg bg-opacity-60">
-          <Image src="/logo.png" alt="logo" width={200} height={200} />
+          <Link href="/">
+            <Image src="/logo.png" alt="logo" width={200} height={200} />
+          </Link>
           <p
             className={`cursor-pointer text-2xl font-semibold text-white ${tex.className}`}
             onClick={() => {
@@ -107,7 +110,7 @@ export default function HomePage() {
           </p>
         </div>
       </div>
-      <div ref={aboutRef} className="flex h-[150vh] w-full flex-col">
+      <div ref={aboutRef} className="flex h-[125vh] w-full flex-col">
         <div className="flex w-full flex-col items-center justify-center gap-y-2 bg-brand-bg p-8 text-center">
           <h1 className={`text-4xl font-bold text-white ${tex.className}`}>
             WE ARE BLUESTAR
@@ -226,14 +229,14 @@ export default function HomePage() {
       </div>
       <div ref={serviceRef} className="h-max w-full bg-brand-bg">
         <div className="flex h-full w-screen flex-col">
-          <div className="mx-auto w-screen bg-[url(/boutiquebg.webp)] bg-cover bg-center">
-            <div className="group h-full w-full bg-brand-bg bg-opacity-70 p-8 hover:bg-opacity-90 hover:duration-500">
+          <div className="mx-auto h-max w-screen bg-[url(/boutiquebg.webp)] bg-cover bg-center">
+            <div className="h-full w-full bg-brand-bg bg-opacity-90 p-8">
               <h1
                 className={`text-bold text-center text-5xl text-white ${tex.className}`}
               >
                 Boutique
               </h1>
-              <p className="pt-4 text-xl text-white opacity-0 group-hover:opacity-100 group-hover:duration-500">
+              <p className="pt-4 text-xl text-white">
                 Where traditional brokers often rely on arbitrary comparisons,
                 we conduct thorough, in-depth analyses, making sure you have all
                 vital details about potential investments, from construction
@@ -245,14 +248,14 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div className="h-screen w-screen bg-[url(/integrativebg.webp)] bg-cover bg-center">
-            <div className="group h-full w-full bg-brand-bg bg-opacity-70 p-8 hover:bg-opacity-90 hover:duration-500">
+          <div className="h-max w-screen bg-[url(/integrativebg.webp)] bg-center">
+            <div className="h-full w-full bg-brand-bg bg-opacity-90 p-8">
               <h1
                 className={`text-bold text-center text-5xl text-white ${tex.className}`}
               >
                 Integrative
               </h1>
-              <p className="pt-4 text-xl text-white opacity-0 group-hover:opacity-100 group-hover:duration-500">
+              <p className="pt-4 text-xl text-white">
                 If you are an existing entity seeking to optimize your
                 acquisition strategies and portfolio management, BlueStar
                 seamlessly becomes part of your operations for a comprehensive
@@ -264,14 +267,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="h-screen w-screen bg-[url(/bespokebg.webp)] bg-cover bg-center">
-            <div className="group h-full w-full bg-brand-bg bg-opacity-70 p-8 hover:bg-opacity-90 hover:duration-500">
+          <div className="h-max w-screen bg-[url(/bespokebg.webp)] bg-center">
+            <div className="h-full w-full bg-brand-bg bg-opacity-90 p-8">
               <h1
                 className={`text-bold text-center text-5xl text-white ${tex.className}`}
               >
                 Bespoke
               </h1>
-              <p className="pt-4 text-xl text-white opacity-0 group-hover:opacity-100 group-hover:duration-500">
+              <p className="pt-4 text-xl text-white">
                 Our bespoke approach delivers tailored strategies aligned with
                 your investment goals and timelines. We work closely with you to
                 understand your unique needs and develop a customized investment
@@ -391,6 +394,13 @@ export default function HomePage() {
           </button>
         </div>
       </div>
+      <ArrowUp
+        className="sticky bottom-10 ml-auto mr-10 h-[40px] w-[40px] rounded-full bg-brand-blue p-2"
+        color="#FFF"
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+      />
       <div className="flex h-max w-screen flex-row justify-center bg-brand-bg">
         <div className="flex flex-col p-8">
           <h1
@@ -467,7 +477,9 @@ export default function HomePage() {
         >
           SERVICES
         </p>
-        <Image src="/logo.png" alt="logo" width={200} height={200} />
+        <Link href="/">
+          <Image src="/logo.png" alt="logo" width={200} height={200} />
+        </Link>
         <p
           className={`cursor-pointer pt-16 text-2xl font-semibold text-white ${tex.className}`}
           onClick={() => {
@@ -517,7 +529,7 @@ export default function HomePage() {
         </div>
         <div
           ref={parent}
-          className="flex w-1/3 flex-col justify-center gap-y-4 bg-brand-bg bg-opacity-70 p-16"
+          className="flex w-1/3 flex-col justify-center gap-y-4 bg-brand-bg bg-opacity-80 p-16"
         >
           <div className="flex flex-row gap-4">
             <svg
@@ -668,6 +680,9 @@ export default function HomePage() {
         <div className="flex h-full w-full items-center justify-center bg-brand-bg bg-opacity-70 p-16">
           <button
             className={`rounded-lg bg-brand-blue px-8 py-2 text-2xl font-bold text-white ${tex.className}`}
+            onClick={() => {
+              contactRef.current?.scrollIntoView({ behavior: "smooth" });
+            }}
           >
             WORK WITH US
           </button>
