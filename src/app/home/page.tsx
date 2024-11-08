@@ -107,7 +107,7 @@ export default function HomePage() {
           </p>
         </div>
       </div>
-      <div ref={aboutRef} className="flex h-[125vh] w-full flex-col">
+      <div ref={aboutRef} className="flex h-[150vh] w-full flex-col">
         <div className="flex w-full flex-col items-center justify-center gap-y-2 bg-brand-bg p-8 text-center">
           <h1 className={`text-4xl font-bold text-white ${tex.className}`}>
             WE ARE BLUESTAR
