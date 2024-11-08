@@ -395,7 +395,7 @@ export default function HomePage() {
         </div>
       </div>
       <ArrowUp
-        className="sticky bottom-10 ml-auto mr-10 h-[40px] w-[40px] rounded-full bg-brand-blue p-2"
+        className="fixed bottom-8 right-4 ml-auto mr-10 h-[40px] w-[40px] rounded-full bg-brand-blue p-2"
         color="#FFF"
         onClick={() => {
           window.scrollTo({ top: 0, behavior: "smooth" });
