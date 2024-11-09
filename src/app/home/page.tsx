@@ -7,6 +7,8 @@ import { Textarea } from "~/components/ui/textarea";
 import { useRef, useState, useEffect } from "react";
 import autoAnimate from "@formkit/auto-animate";
 import Link from "next/link";
+import { SiCalendly } from "react-icons/si";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 
 const tex = localFont({
   src: [
@@ -39,6 +41,19 @@ export default function HomePage() {
   const contactRef = useRef<HTMLDivElement | null>(null);
   const propertyRef = useRef<HTMLDivElement | null>(null);
   const parent = useRef(null);
+
+  const [show, setShow] = useState(true);
+  const [previousScrollY, setPreviousScrollY] = useState(0);
+
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > previousScrollY) {
+      setShow(false);
+    } else {
+      setShow(true);
+    }
+    setPreviousScrollY(latest);
+  });
 
   const [about, setAbout] = useState("none");
   useEffect(() => {
@@ -137,7 +152,7 @@ export default function HomePage() {
         </div>
         <div
           ref={parent}
-          className="flex h-full w-full flex-col justify-center gap-y-4 bg-brand-bg bg-opacity-70 bg-[url(/introbg.webp)] bg-cover bg-center bg-no-repeat p-8"
+          className="flex h-full w-full flex-col justify-center gap-y-4 bg-brand-bg bg-opacity-90 bg-[url(/introbg.webp)] bg-cover bg-center bg-no-repeat p-8"
         >
           <div className="flex flex-row gap-4">
             <svg
@@ -449,18 +464,24 @@ export default function HomePage() {
           </h1>
           <div className="flex flex-row">
             <Phone color="#FFF" />
-            <p className="ml-2 text-sm text-white">+1 (234) 567-8910</p>
+            <p className="ml-2 text-sm text-white">+1 (718) 690-1914</p>
           </div>
           <div className="flex flex-row">
             <Mail color="#ffffff" />
-            <p className="ml-2 text-sm text-white">EMAIL@BLUESTAR.COM</p>
+            <p className="ml-2 text-sm text-white">
+              TEAM@BLUESTARHOLDINGSINTERNATIONAL.COM
+            </p>
           </div>
         </div>
       </div>
     </div>
   ) : (
     <div>
-      <div className="sticky top-0 z-10 flex h-[20vh] w-screen flex-row items-center justify-center gap-x-4 bg-brand-bg bg-opacity-60">
+      <motion.div
+        className="sticky top-0 z-10 flex h-[20vh] w-screen flex-row items-center justify-center gap-x-4 bg-brand-bg bg-opacity-60"
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        animate={{ y: show ? 0 : "-20vh" }}
+      >
         <p
           className={`cursor-pointer pt-16 text-2xl font-semibold text-white ${tex.className}`}
           onClick={() => {
@@ -496,30 +517,30 @@ export default function HomePage() {
         >
           CONTACT
         </p>
-      </div>
+      </motion.div>
       <div className="absolute top-0 h-screen w-full bg-[url(/topsplashbg.webp)] bg-cover bg-center bg-no-repeat"></div>
       <div className="h-[80vh] w-screen"></div>
       <div
         ref={aboutRef}
         className="flex h-screen w-full flex-row bg-[url(/introbg.webp)] bg-cover bg-center bg-no-repeat"
       >
-        <div className="flex w-2/3 flex-col items-center justify-center gap-y-2 bg-brand-bg p-20">
-          <h1 className={`text-4xl font-bold text-white ${tex.className}`}>
+        <div className="flex w-2/3 flex-col justify-center gap-y-2 bg-brand-bg p-20">
+          <h1 className={`pb-4 text-4xl font-bold text-white ${tex.className}`}>
             WE ARE BLUESTAR
           </h1>
-          <p className="text-xl text-white">
+          <p className="pb-2 text-xl text-white">
             At BlueStar, we specialize in providing unparalleled real estate
             consultancy services, focusing on precise underwriting and valuation
             of assets. With cutting-edge software tools, we deliver maximum
             accuracy in evaluating both commercial and residential properties
             globally.
           </p>
-          <p className="text-xl text-white">
+          <p className="pb-2 text-xl text-white">
             Our bespoke approach delivers tailored strategies aligned with your
             investment goals and timelines.
           </p>
           <button
-            className="rounded-lg bg-brand-blue px-4 py-2 text-white"
+            className="mx-auto rounded-lg bg-brand-blue px-4 py-2 text-white"
             onClick={() => {
               contactRef.current?.scrollIntoView({ behavior: "smooth" });
             }}
@@ -784,6 +805,14 @@ export default function HomePage() {
           <button className="mx-auto mt-2 w-max rounded-md bg-brand-blue px-4 py-2 text-white">
             Send
           </button>
+          <p className="mx-auto text-white"> OR: </p>
+          <Link
+            href="/contact"
+            className="mx-auto mt-2 flex w-max flex-row rounded-md bg-brand-blue px-4 py-2 text-white"
+          >
+            <SiCalendly className="my-auto mr-2" />
+            <p>SCHEDULE A CALL</p>
+          </Link>
         </div>
       </div>
       <div className="flex h-max w-screen flex-row justify-center bg-brand-bg">
@@ -844,11 +873,13 @@ export default function HomePage() {
           </h1>
           <div className="flex flex-row">
             <Phone color="#FFF" />
-            <p className="ml-2 text-sm text-white">+1 (234) 567-8910</p>
+            <p className="ml-2 text-sm text-white">+1 (718) 690-1914</p>
           </div>
           <div className="flex flex-row">
             <Mail color="#ffffff" />
-            <p className="ml-2 text-sm text-white">EMAIL@BLUESTAR.COM</p>
+            <p className="ml-2 text-sm text-white">
+              TEAM@BLUESTARHOLDINGSINTERNATIONAL.COM
+            </p>
           </div>
         </div>
       </div>
