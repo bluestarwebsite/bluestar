@@ -35,6 +35,10 @@ const tex = localFont({
   ],
 });
 
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export default function HomePage() {
   const serviceRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
@@ -42,6 +46,7 @@ export default function HomePage() {
   const propertyRef = useRef<HTMLDivElement | null>(null);
   const parent = useRef(null);
 
+  const [inquirySend, setInquirySend] = useState("SEND INQUIRY");
   const [show, setShow] = useState(true);
   const [previousScrollY, setPreviousScrollY] = useState(0);
 
@@ -83,6 +88,63 @@ export default function HomePage() {
   }, []);
 
   const isMobile = width <= 768;
+
+  interface FormData {
+    fname: string;
+    lname: string;
+    phone: string;
+    email: string;
+    message: string;
+  }
+
+  const [formData, setFormData] = useState<FormData>({
+    fname: "",
+    lname: "",
+    phone: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setInquirySend("SENDING...");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const data = (await response.json()) as string;
+        console.log("Response from server:", data);
+        setInquirySend("Inquiry submitted successfully!");
+        await delay(2000).then(() => {
+          setInquirySend("SEND INQUIRY");
+        });
+      } else {
+        setInquirySend("Failed to submit form");
+
+        await delay(10000).then(() => {
+          setInquirySend("SEND INQUIRY");
+        });
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
 
   return isMobile ? (
     <div className="flex h-max w-screen flex-col">
@@ -374,8 +436,8 @@ export default function HomePage() {
           />
         </div>
       </div>
-      <div
-        ref={contactRef}
+      <form
+        onSubmit={handleSubmit}
         className="flex h-screen w-screen flex-col items-center justify-center bg-[url(/contactbg.webp)] bg-cover bg-center"
       >
         <div className="flex h-max w-screen flex-col rounded-3xl bg-brand-bg bg-opacity-80 p-16">
@@ -387,28 +449,64 @@ export default function HomePage() {
           <div className="flex h-max w-max flex-col text-nowrap text-sm">
             <div className="flex flex-row text-white">
               <p className="pt-1">First Name:</p>
-              <Input type="text" />
+              <Input
+                name="fname"
+                type="text"
+                value={formData.fname}
+                onChange={handleChange}
+              />
             </div>
             <div className="flex flex-row text-white">
               <p className="pt-1">Last Name:</p>
-              <Input type="text" />
+              <Input
+                name="lname"
+                type="text"
+                value={formData.lname}
+                onChange={handleChange}
+              />
             </div>
             <div className="flex flex-row text-white">
               <p className="pt-1">Phone:</p>
-              <Input type="text" />
+              <Input
+                name="phone"
+                type="text"
+                value={formData.phone}
+                onChange={handleChange}
+              />
             </div>
             <div className="flex flex-row text-white">
               <p className="pt-1">Email:</p>
-              <Input type="email" />
+              <Input
+                name="email"
+                type="text"
+                value={formData.email}
+                onChange={handleChange}
+              />
             </div>
           </div>
           <p className="mr-auto py-2 italic text-white">Message:</p>
-          <Textarea placeholder="Message" />
-          <button className="mx-auto mt-2 w-max rounded-md bg-brand-blue px-4 py-2 text-white">
+          <Textarea
+            placeholder="Message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+          />
+          <button
+            type="submit"
+            className="mx-auto mt-2 w-max rounded-md bg-brand-blue px-4 py-2 text-white"
+          >
             Send
           </button>
+          <p className="mx-auto text-white"> OR: </p>
+          <Link
+            href="/contact"
+            className="mx-auto mt-2 flex w-max flex-row rounded-md bg-brand-blue px-4 py-2 text-white"
+          >
+            <SiCalendly className="my-auto mr-2" />
+            <p>SCHEDULE A CALL</p>
+          </Link>
         </div>
-      </div>
+      </form>
       <ArrowUp
         className="fixed bottom-8 right-4 ml-auto mr-10 h-[40px] w-[40px] rounded-full bg-brand-blue p-2"
         color="#FFF"
@@ -469,7 +567,13 @@ export default function HomePage() {
           <div className="flex flex-row">
             <Mail color="#ffffff" />
             <p className="ml-2 text-sm text-white">
-              TEAM@BLUESTARHOLDINGSINTERNATIONAL.COM
+              TEAM@
+              <br />
+              BLUESTAR
+              <br />
+              HOLDINGS
+              <br />
+              INTERNATIONAL.COM
             </p>
           </div>
         </div>
@@ -776,44 +880,75 @@ export default function HomePage() {
         ref={contactRef}
         className="flex h-screen w-screen flex-col items-center justify-center bg-[url(/contactbg.webp)] bg-cover bg-center"
       >
-        <div className="flex h-max w-max flex-col rounded-3xl bg-brand-bg bg-opacity-80 p-16">
-          <h1
-            className={`pb-10 text-center text-5xl font-bold text-white ${tex.className}`}
-          >
-            SEND US A MESSAGE
-          </h1>
-          <div className="grid h-max w-max grid-cols-2 grid-rows-2 gap-2 text-nowrap">
-            <div className="col-start-1 col-end-1 row-start-1 row-end-1 flex flex-row text-white">
-              <p className="pt-2">First Name:</p>
-              <Input type="text" />
+        <form className="h-max w-max" onSubmit={handleSubmit}>
+          <div className="flex h-max w-max flex-col rounded-3xl bg-brand-bg bg-opacity-80 p-16">
+            <h1
+              className={`pb-10 text-center text-5xl font-bold text-white ${tex.className}`}
+            >
+              SEND US A MESSAGE
+            </h1>
+            <div className="grid h-max w-max grid-cols-2 grid-rows-2 gap-2 text-nowrap">
+              <div className="col-start-1 col-end-1 row-start-1 row-end-1 flex flex-row text-white">
+                <p className="pt-2">First Name:</p>
+                <Input
+                  name="fname"
+                  type="text"
+                  value={formData.fname}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-start-2 col-end-2 row-start-1 row-end-1 flex flex-row text-white">
+                <p className="pt-2">Last Name:</p>
+                <Input
+                  name="lname"
+                  type="text"
+                  value={formData.lname}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-start-1 col-end-1 row-start-2 row-end-2 flex flex-row text-white">
+                <p className="pt-2">Phone:</p>
+                <Input
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="col-start-2 col-end-2 row-start-2 row-end-2 flex flex-row text-white">
+                <p className="pt-2">Email:</p>
+                <Input
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
-            <div className="col-start-2 col-end-2 row-start-1 row-end-1 flex flex-row text-white">
-              <p className="pt-2">Last Name:</p>
-              <Input type="text" />
-            </div>
-            <div className="col-start-1 col-end-1 row-start-2 row-end-2 flex flex-row text-white">
-              <p className="pt-2">Phone:</p>
-              <Input type="text" />
-            </div>
-            <div className="col-start-2 col-end-2 row-start-2 row-end-2 flex flex-row text-white">
-              <p className="pt-2">Email:</p>
-              <Input type="email" />
-            </div>
+            <p className="mr-auto py-2 italic text-white">Message:</p>
+            <Textarea
+              className="text-white"
+              placeholder="Message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+            />
+            <button
+              type="submit"
+              className="mx-auto mt-2 w-max rounded-md bg-brand-blue px-4 py-2 text-white"
+            >
+              {inquirySend}
+            </button>
+            <p className="mx-auto text-white"> OR: </p>
+            <Link
+              href="/contact"
+              className="mx-auto mt-2 flex w-max flex-row rounded-md bg-brand-blue px-4 py-2 text-white"
+            >
+              <SiCalendly className="my-auto mr-2" />
+              <p>SCHEDULE A CALL</p>
+            </Link>
           </div>
-          <p className="mr-auto py-2 italic text-white">Message:</p>
-          <Textarea placeholder="Message" />
-          <button className="mx-auto mt-2 w-max rounded-md bg-brand-blue px-4 py-2 text-white">
-            Send
-          </button>
-          <p className="mx-auto text-white"> OR: </p>
-          <Link
-            href="/contact"
-            className="mx-auto mt-2 flex w-max flex-row rounded-md bg-brand-blue px-4 py-2 text-white"
-          >
-            <SiCalendly className="my-auto mr-2" />
-            <p>SCHEDULE A CALL</p>
-          </Link>
-        </div>
+        </form>
       </div>
       <div className="flex h-max w-screen flex-row justify-center bg-brand-bg">
         <Image
