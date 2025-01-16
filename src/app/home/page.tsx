@@ -1013,7 +1013,7 @@ export default function HomePage() {
           <div className="flex flex-row">
             <Mail color="#ffffff" />
             <p className="ml-2 text-sm text-white">
-              TEAM@BLUESTARHOLDINGSINTERNATIONAL.COM
+              TEAM@BLUESTARHOLDINGSINTERNATIONAL.COM hi
             </p>
           </div>
         </div>
