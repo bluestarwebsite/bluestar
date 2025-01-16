@@ -499,7 +499,7 @@ export default function HomePage() {
           </button>
           <p className="mx-auto text-white"> OR: </p>
           <Link
-            href="/contact"
+            href="https://calendly.com/admin-bsreconsulting/30min"
             className="mx-auto mt-2 flex w-max flex-row rounded-md bg-brand-blue px-4 py-2 text-white"
           >
             <SiCalendly className="my-auto mr-2" />
@@ -941,7 +941,7 @@ export default function HomePage() {
             </button>
             <p className="mx-auto text-white"> OR: </p>
             <Link
-              href="/contact"
+              href="https://calendly.com/admin-bsreconsulting/30min"
               className="mx-auto mt-2 flex w-max flex-row rounded-md bg-brand-blue px-4 py-2 text-white"
             >
               <SiCalendly className="my-auto mr-2" />
