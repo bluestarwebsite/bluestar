@@ -194,7 +194,7 @@ export default function HomePage() {
           </h1>
           <p className="text-xl text-white">
             At BlueStar, we specialize in providing unparalleled real estate
-            consultancy services, focusing on precise underwriting and valuation
+            consultancy service, focusing on precise underwriting and valuation
             of assets. With cutting-edge software tools, we deliver maximum
             accuracy in evaluating both commercial and residential properties
             globally.
