@@ -1,4 +1,4 @@
-import "~/styles/globals.css";
+import "@/styles/globals.css";
 
 import { Open_Sans } from "next/font/google";
 import { type Metadata } from "next";
