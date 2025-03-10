@@ -1,8 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { contacts } from "~/server/db/schema";
-import { db } from "~/server/db";
+import { contacts } from "@/server/db/schema";
+import { db } from "@/server/db";
 interface ContactFormData {
   fname: string;
   lname: string;

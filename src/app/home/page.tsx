@@ -2,8 +2,8 @@
 import localFont from "next/font/local";
 import Image from "next/image";
 import { Phone, Mail, ArrowUp } from "lucide-react";
-import { Input } from "~/components/ui/input";
-import { Textarea } from "~/components/ui/textarea";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { useRef, useState, useEffect } from "react";
 import autoAnimate from "@formkit/auto-animate";
 import Link from "next/link";
@@ -1013,7 +1013,7 @@ export default function HomePage() {
           <div className="flex flex-row">
             <Mail color="#ffffff" />
             <p className="ml-2 text-sm text-white">
-              TEAM@BLUESTARHOLDINGSINTERNATIONAL.COM hi
+              TEAM@BLUESTARHOLDINGSINTERNATIONAL.COM
             </p>
           </div>
         </div>

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { MagnetButton } from "~/components/button";
+import { MagnetButton } from "@/components/button";
 
 export default function HomePage() {
   return (
