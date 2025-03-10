@@ -1,4 +1,6 @@
 import "@/styles/globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { Open_Sans } from "next/font/google";
 import { type Metadata } from "next";
@@ -16,6 +18,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={sans.className}>
       <body className="bg-brand-bg">{children}</body>
+      <Analytics />
+      <SpeedInsights />
     </html>
   );
 }
