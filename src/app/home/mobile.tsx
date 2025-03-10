@@ -9,6 +9,7 @@ import autoAnimate from "@formkit/auto-animate";
 import Link from "next/link";
 import { SiCalendly } from "react-icons/si";
 import { useMotionValueEvent, useScroll } from "framer-motion";
+import { useIsMobile } from "@/lib/hooks";
 
 export default function Page() {
   const tex = localFont({
