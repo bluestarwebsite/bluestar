@@ -17,9 +17,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={sans.className}>
-      <body className="bg-brand-bg">{children}</body>
-      <Analytics />
-      <SpeedInsights />
+      <body className="bg-brand-bg">
+        {children}
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
