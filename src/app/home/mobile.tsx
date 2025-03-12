@@ -147,7 +147,7 @@ export default function Page() {
   };
   return (
     <div className="flex h-max w-screen flex-col">
-      <div className="h-screen w-screen bg-[url(/topsplashbg.webp)] bg-cover bg-center bg-no-repeat">
+      <section className="h-screen w-screen bg-[url(/topsplashbg.webp)] bg-cover bg-center bg-no-repeat">
         <div className="flex h-screen w-screen flex-col items-center justify-center bg-brand-bg bg-opacity-60">
           <Link href="/">
             <Image src="/logo.png" alt="logo" width={200} height={200} />
@@ -185,7 +185,7 @@ export default function Page() {
             CONTACT
           </p>
         </div>
-      </div>
+      </section>
       <div ref={aboutRef} className="flex h-[125vh] w-full flex-col">
         <div className="flex w-full flex-col items-center justify-center gap-y-2 bg-brand-bg p-8 text-center">
           <h1 className={`text-4xl font-bold text-white ${tex.className}`}>

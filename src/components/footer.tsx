@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useIsMobile } from "@/lib/hooks";
 import {
   FaLinkedin,
@@ -31,29 +32,65 @@ export default function Footer() {
         </h1>
         <div className="flex flex-row">
           <IoMdPhonePortrait color="#FFF" />
-          <p className="ml-2 text-sm text-white">+1 (718) 690-1914</p>
+          <Link
+            href={"TEL:+1 (718) 690-1914"}
+            className="ml-2 text-sm text-blue-600 underline"
+          >
+            +1 (718) 690-1914
+          </Link>
         </div>
         <div className="flex flex-row">
           <IoMdMail color="#ffffff" />
-          <p className="ml-2 text-sm text-white">Email</p>
+          <Link
+            href={"mailto:team@bluestarholdingsinternational.com"}
+            className="ml-2 text-sm text-blue-600 underline"
+          >
+            Email
+          </Link>
         </div>
         <div className="flex flex-row">
           <FaInstagram color="#ffffff" />
-          <p className="ml-2 text-sm text-white">Instagram</p>
+          <Link
+            href={"https://www.instagram.com/bsre_consulting/"}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="text-hyperlink ml-2 text-sm"
+          >
+            Instagram
+          </Link>
         </div>
         <div className="flex flex-row">
           <FaFacebook color="#ffffff" />
-          <p className="ml-2 text-sm text-white">Facebook</p>
+          <Link
+            href={"https://www.facebook.com/61572853814002"}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="text-hyperlink ml-2 text-sm"
+          >
+            Facebook
+          </Link>
         </div>
         <div className="flex flex-row">
           <FaXTwitter color="#ffffff" />
-          <p className="ml-2 text-sm text-white">
+          <Link
+            href={"https://x.com/BSRE_Consulting"}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="text-hyperlink ml-2 text-sm"
+          >
             X, formerly known as Twitter
-          </p>
+          </Link>
         </div>
         <div className="flex flex-row">
           <FaLinkedin color="#ffffff" />
-          <p className="ml-2 text-sm text-white">Linkedin</p>
+          <Link
+            href={"https://www.linkedin.com/company/bluestar-consulting"}
+            className="text-hyperlink ml-2 text-sm"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Linkedin
+          </Link>
         </div>
       </div>
     </div>

@@ -3,16 +3,13 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
 import { SiCalendly } from "react-icons/si";
-import { useState, forwardRef } from "react";
+import { useState } from "react";
 import { useIsMobile } from "@/lib/hooks";
 
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-interface ContactProps {
-  title: string;
-}
-const Contact = forwardRef<HTMLDivElement, ContactProps>((props, ref) => {
+export default function Contact({ title }: { title: string }) {
   const [inquirySend, setInquirySend] = useState("SEND INQUIRY");
   interface FormData {
     fname: string;
@@ -73,17 +70,14 @@ const Contact = forwardRef<HTMLDivElement, ContactProps>((props, ref) => {
   const isMobile = useIsMobile();
 
   return (
-    <div
-      ref={ref}
-      className="flex h-screen w-screen flex-col bg-[url(/contactbg.webp)] bg-cover bg-center"
-    >
+    <div className="flex h-screen w-screen flex-col bg-[url(/contactbg.webp)] bg-cover bg-center">
       <form className="m-auto" onSubmit={handleSubmit}>
         <div className="flex h-min w-min flex-col rounded-3xl bg-brand-bg bg-opacity-80 p-16">
           <div className="mx-auto">
             <h1
               className={`${isMobile ? "pb-2 text-2xl" : "pb-10 text-5xl"} text-center font-bold text-white`}
             >
-              {props.title}
+              {title}
             </h1>
           </div>
           <div
@@ -152,7 +146,4 @@ const Contact = forwardRef<HTMLDivElement, ContactProps>((props, ref) => {
       </form>
     </div>
   );
-});
-
-Contact.displayName = "Contact";
-export default Contact;
+}
