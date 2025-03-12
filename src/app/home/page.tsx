@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import autoAnimate from "@formkit/auto-animate";
 import Link from "next/link";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import { useIsMobile } from "@/lib/hooks";
