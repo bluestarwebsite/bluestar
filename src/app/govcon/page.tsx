@@ -33,38 +33,41 @@ const tex = localFont({
 export default function GovConPage() {
   const isMobile = useIsMobile();
   return (
-    <div className={`flex w-screen flex-col overflow-x-clip ${tex.className}`}>
-      <section
-        className={`flex h-screen w-screen flex-col ${isMobile ? "gap-2 p-5" : "gap-8 p-20"}`}
-      >
+    <main className={`flex w-screen flex-col overflow-x-clip ${tex.className}`}>
+      <section className="h-screen w-screen bg-[url(/govcon.webp)] bg-cover bg-center">
         <div
-          className={`flex ${isMobile ? "mt-auto w-full" : "w-[70%]"} flex-col`}
+          className={`flex h-screen w-screen flex-col bg-brand-bg bg-opacity-80 ${isMobile ? "gap-2 p-5" : "gap-8 p-20"}`}
         >
-          <h1
-            className={`mb-5 ${isMobile ? "text-4xl" : "text-7xl"} font-bold text-white`}
+          <div
+            className={`flex ${isMobile ? "mt-auto w-full" : "w-[70%]"} flex-col`}
           >
-            From Analysis to Execution {isMobile ? <br /> : "-"} Driving GovCon
-            Project Success
-          </h1>
-          <p
-            className={`${isMobile ? "text-lg" : "text-2xl"} font-semibold text-brand-gray`}
+            <h1
+              className={`mb-5 ${isMobile ? "text-4xl" : "text-7xl"} font-bold text-white`}
+            >
+              From Analysis to Execution {isMobile ? <br /> : "-"} Driving
+              GovCon Project Success
+            </h1>
+            <p
+              className={`${isMobile ? "text-lg" : "text-2xl"} font-semibold text-brand-gray`}
+            >
+              Winning government real estate contracts requires bulletproof
+              underwriting and compliance. We ensure your financials stand up to
+              institutional-level scrutiny—helping your projects cross the
+              finish
+            </p>
+          </div>
+          <div
+            className={`ml-auto flex ${isMobile ? "mb-auto h-max w-full" : "h-full w-[40%]"} flex-col justify-center`}
           >
-            Winning government real estate contracts requires bulletproof
-            underwriting and compliance. We ensure your financials stand up to
-            institutional-level scrutiny—helping your projects cross the finish
-          </p>
-        </div>
-        <div
-          className={`ml-auto flex ${isMobile ? "mb-auto h-max w-full" : "h-full w-[40%]"} flex-col justify-center`}
-        >
-          <p className="mb-2 text-xl font-semibold text-brand-blue">
-            Respond to RFPs with Confidence – Book a Free Consultation Today
-          </p>
-          <Button
-            className={`rounded-lg bg-brand-blue px-8 py-2 text-2xl font-bold text-white ${tex.className}`}
-          >
-            Book Now
-          </Button>
+            <p className="mb-2 text-xl font-semibold text-brand-blue">
+              Respond to RFPs with Confidence – Book a Free Consultation Today
+            </p>
+            <Button
+              className={`rounded-lg bg-brand-blue px-8 py-2 text-2xl font-bold text-white ${tex.className}`}
+            >
+              Book Now
+            </Button>
+          </div>
         </div>
       </section>
       <section
@@ -178,7 +181,7 @@ export default function GovConPage() {
         <Contact title="Need Advisory for Your GovCon Deal? Let’s Talk!" />
       </section>
       <Footer />
-    </div>
+    </main>
   );
 }
 //import { useState } from "react";

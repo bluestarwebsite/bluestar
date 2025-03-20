@@ -128,14 +128,14 @@ export function HoverButton({
     );
   }
   return (
-    <div className="h-[40vh] w-[15vw] p-2">
+    <div className="mx-2 h-max w-max bg-[url(/bespokebg.webp)] bg-cover bg-center">
       <div
         onMouseOver={() => setShow(true)}
         onMouseOut={() => setShow(false)}
-        className="flex h-full w-full flex-col"
+        className="flex h-[40vh] w-[15vw] flex-col bg-brand-bg bg-opacity-80 p-2"
       >
         <p
-          className={`mx-auto mb-auto justify-self-start text-center text-white ${show ? "opactiy-100" : "opacity-0"}`}
+          className={`mx-auto my-auto justify-self-start text-center text-white ${show ? "opactiy-100" : "opacity-0"}`}
         >
           {desc}
         </p>
