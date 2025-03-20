@@ -110,7 +110,7 @@ export default function HomePage() {
       )}
       <section
         ref={aboutRef}
-        className="h-screen w-screen bg-[url(/introbg.webp)] bg-cover bg-center bg-no-repeat"
+        className={`${isMobile ? "h-max" : "h-screen"} w-screen bg-[url(/introbg.webp)] bg-cover bg-center bg-no-repeat`}
       >
         <div
           className={`flex h-full w-full ${isMobile ? "flex-col" : "flex-row"} bg-brand-bg bg-opacity-80`}
@@ -242,7 +242,9 @@ export default function HomePage() {
             Customized Strategies for Your Success
           </p>
         </div>
-        <div className={`mx-auto flex h-[30vh] flex-row justify-center`}>
+        <div
+          className={`${isMobile ? "flex-col" : "h-[30vh] flex-row"} mx-auto flex justify-center`}
+        >
           <HoverButton
             title="Real Estate Developers"
             desc="Tailored insights, feasibility & financial modeling for your next project"
@@ -351,7 +353,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="h-max w-screen p-20">
+      <section className="h-max w-screen p-14">
         <h1 className="mb-4 text-5xl text-white">Why Bluestar Consulting?</h1>
         <h2 className="mb-4 text-balance text-xl text-brand-gray">
           Collaborating with Bluestar Consulting means gaining a trusted partner
@@ -361,7 +363,9 @@ export default function HomePage() {
           rather delegate—so you can focus on shaping visionary deals and
           driving portfolio growth.
         </h2>
-        <div className="my-20 flex flex-row gap-4 text-pretty">
+        <div
+          className={` ${isMobile ? "flex-col" : "my-20 flex-row"} flex gap-4 text-pretty`}
+        >
           <div className="flex flex-col">
             <h1 className="pb-4 text-center text-2xl text-brand-blue">
               Data-Driven Assurance

@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
+import { useIsMobile } from "@/lib/hooks";
 
 export function MagnetButton() {
   const ref = useRef<HTMLButtonElement | null>(null);
@@ -113,6 +114,19 @@ export function HoverButton({
   img?: string;
 }) {
   const [show, setShow] = useState(false);
+  const isMobile = useIsMobile();
+  if (isMobile) {
+    return (
+      <div className="m-2 mx-auto flex h-max w-2/3 flex-col gap-2 rounded-lg border border-brand-gray p-4">
+        <p className="text-pretty text-center text-white">{desc}</p>
+        <div className="mx-auto h-max w-max rounded-md bg-brand-blue px-4 py-2 text-center">
+          <Link className={`text-white`} href={link}>
+            {title}
+          </Link>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="h-[40vh] w-[15vw] p-2">
       <div
