@@ -8,6 +8,8 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import { useIsMobile } from "@/lib/hooks";
 import NavBar from "@/components/navbar";
+import { HoverButton } from "@/components/button";
+import { ChartLine } from "lucide-react";
 
 const tex = localFont({
   src: [
@@ -38,6 +40,7 @@ export default function HomePage() {
   const serviceRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
+  const industryRef = useRef<HTMLDivElement | null>(null);
   const propertyRef = useRef<HTMLDivElement | null>(null);
   const parent = useRef(null);
   const [about, setAbout] = useState("none");
@@ -107,7 +110,7 @@ export default function HomePage() {
       )}
       <section
         ref={aboutRef}
-        className="h-max w-screen bg-[url(/introbg.webp)] bg-cover bg-center bg-no-repeat"
+        className="h-screen w-screen bg-[url(/introbg.webp)] bg-cover bg-center bg-no-repeat"
       >
         <div
           className={`flex h-full w-full ${isMobile ? "flex-col" : "flex-row"} bg-brand-bg bg-opacity-80`}
@@ -227,6 +230,41 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <section
+        ref={industryRef}
+        className={`flex h-max w-screen flex-col ${isMobile ? "gap-2 p-5" : "gap-8 p-20"}`}
+      >
+        <div className={`flex flex-col`}>
+          <h1 className={`mx-auto mb-5 text-5xl font-bold text-white`}>
+            Find the Right Solution for Your Industry
+          </h1>
+          <p className={`mx-auto text-xl font-semibold text-brand-gray`}>
+            Customized Strategies for Your Success
+          </p>
+        </div>
+        <div className={`mx-auto flex h-[30vh] flex-row justify-center`}>
+          <HoverButton
+            title="Real Estate Developers"
+            desc="Tailored insights, feasibility & financial modeling for your next project"
+            link="/redev"
+          />
+          <HoverButton
+            title="GovCon"
+            desc="Compliant underwriting & execution support for government contracts"
+            link="/govcon"
+          />
+          <HoverButton
+            title="Commercial Brokers"
+            desc="Market data & institutional-grade valuations for your clients’ deals"
+            link="/commercial"
+          />
+          <HoverButton
+            title="Private Equity Investors"
+            desc="Optimized portfolio strategies & risk analysis for CRE investments"
+            link="/privequi"
+          />
+        </div>
+      </section>
       <section ref={serviceRef}>
         <div className="h-full w-full bg-brand-bg">
           <h1
@@ -310,6 +348,49 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="h-max w-screen p-20">
+        <h1 className="mb-4 text-5xl text-white">Why Bluestar Consulting?</h1>
+        <h2 className="mb-4 text-balance text-xl text-brand-gray">
+          Collaborating with Bluestar Consulting means gaining a trusted partner
+          that integrates academic rigor, detailed financial modeling, and
+          hands-on support to push your projects across the finish line. We
+          become an extension of your team—managing the analysis and tasks you’d
+          rather delegate—so you can focus on shaping visionary deals and
+          driving portfolio growth.
+        </h2>
+        <div className="my-20 flex flex-row gap-4 text-pretty">
+          <div className="flex flex-col">
+            <h1 className="pb-4 text-center text-2xl text-brand-blue">
+              Data-Driven Assurance
+            </h1>
+            <p className="text-center text-brand-gray">
+              Monte Carlo simulations, sensitivity analyses, and precise
+              underwriting highlight potential pitfalls and opportunities,
+              giving you confidence in every decision.
+            </p>
+          </div>
+          <div className="flex flex-col">
+            <h1 className="pb-4 text-center text-2xl text-brand-blue">
+              Tailored Solutions
+            </h1>
+            <p className="text-center text-brand-gray">
+              We adapt our approach to your unique goals and “buy box,”
+              delivering strategies that reflect your vision rather than fitting
+              you into a generic template.
+            </p>
+          </div>
+          <div className="flex flex-col">
+            <h1 className="pb-4 text-center text-2xl text-brand-blue">
+              Strategic Execution & Support
+            </h1>
+            <p className="text-center text-brand-gray">
+              From transparent communication to consistent follow-through, we
+              serve as a long-term partner, helping you streamline processes,
+              reduce risk, and realize profitable outcomes.
+            </p>
           </div>
         </div>
       </section>

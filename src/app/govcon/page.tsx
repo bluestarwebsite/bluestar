@@ -92,7 +92,7 @@ export default function GovConPage() {
           </p>
         </div>
         <div
-          className={`${isMobile ? "w-full" : "mx-auto w-max"}flex flex-col gap-y-2`}
+          className={`${isMobile ? "w-full" : "mx-auto"} flex flex-col gap-y-2`}
         >
           <HiddenCard
             title="On-Demand GovCon Experts"
@@ -197,7 +197,7 @@ function HiddenCard({
   const [animate] = useAutoAnimate();
   return (
     <div
-      className="w-full rounded-lg border border-white px-4 py-2"
+      className="w-[40vw] rounded-lg border border-white px-4 py-2"
       ref={animate}
     >
       <h1 className="text-lg font-bold text-white">{title}</h1>

@@ -4,8 +4,9 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
+import Link from "next/link";
 import Image from "next/image";
 
 export function MagnetButton() {
@@ -97,5 +98,39 @@ export function MagnetButton() {
         </text>
       </motion.svg>
     </motion.button>
+  );
+}
+
+export function HoverButton({
+  title,
+  desc,
+  link,
+  img,
+}: {
+  title: string;
+  desc: string;
+  link: string;
+  img?: string;
+}) {
+  const [show, setShow] = useState(false);
+  return (
+    <div className="h-[40vh] w-[15vw] p-2">
+      <div
+        onMouseOver={() => setShow(true)}
+        onMouseOut={() => setShow(false)}
+        className="flex h-full w-full flex-col"
+      >
+        <p
+          className={`mx-auto mb-auto justify-self-start text-center text-white ${show ? "opactiy-100" : "opacity-0"}`}
+        >
+          {desc}
+        </p>
+        <div className="mx-auto justify-self-end rounded-md bg-brand-blue p-2">
+          <Link className={`text-white`} href={link}>
+            {title}
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 }
