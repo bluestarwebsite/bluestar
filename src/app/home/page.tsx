@@ -42,6 +42,7 @@ export default function HomePage() {
   const contactRef = useRef<HTMLDivElement | null>(null);
   const industryRef = useRef<HTMLDivElement | null>(null);
   const propertyRef = useRef<HTMLDivElement | null>(null);
+  const bluestarRef = useRef<HTMLDivElement | null>(null);
   const parent = useRef(null);
   const [about, setAbout] = useState("none");
 
@@ -74,6 +75,14 @@ export default function HomePage() {
         <p
           className={`cursor-pointer text-2xl font-semibold text-white ${tex.className}`}
           onClick={() => {
+            industryRef.current?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          INDUSTRY
+        </p>
+        <p
+          className={`cursor-pointer text-2xl font-semibold text-white ${tex.className}`}
+          onClick={() => {
             serviceRef.current?.scrollIntoView({ behavior: "smooth" });
           }}
         >
@@ -86,6 +95,14 @@ export default function HomePage() {
             <Image src="/logo.png" alt="logo" width={200} height={200} />
           </Link>
         )}
+        <p
+          className={`cursor-pointer text-2xl font-semibold text-white ${tex.className}`}
+          onClick={() => {
+            bluestarRef.current?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          BLUESTAR
+        </p>
         <p
           className={`cursor-pointer text-2xl font-semibold text-white ${tex.className}`}
           onClick={() => {
@@ -353,7 +370,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <section className="h-max w-screen p-14">
+      <section className="h-max w-screen p-14" ref={bluestarRef}>
         <h1 className="mb-4 text-5xl text-white">Why Bluestar Consulting?</h1>
         <h2 className="mb-4 text-balance text-xl text-brand-gray">
           Collaborating with Bluestar Consulting means gaining a trusted partner
@@ -487,7 +504,7 @@ export default function HomePage() {
         >
           Contact Us
         </h1>
-        <Contact title="Book a Free Strategic Call Today and we identify " />
+        <Contact title="Book a Free Strategic Call Today" />
       </section>
       <Footer />
     </div>
