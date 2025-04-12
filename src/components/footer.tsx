@@ -26,7 +26,7 @@ export default function Footer() {
         }}
         className="cursor-pointer"
       />
-      <div className="flex w-max flex-col p-2">
+      <div className="flex w-max flex-col p-2 text-white">
         <h1 className={`pb-2 text-xl font-semibold text-white`}>
           Connect With Us
         </h1>
@@ -34,7 +34,7 @@ export default function Footer() {
           <IoMdPhonePortrait color="#FFF" />
           <Link
             href={"TEL:+1 (718) 690-1914"}
-            className="ml-2 text-sm text-blue-600 underline"
+            className="ml-2 text-sm underline"
           >
             +1 (718) 690-1914
           </Link>
@@ -43,7 +43,7 @@ export default function Footer() {
           <IoMdMail color="#ffffff" />
           <Link
             href={"mailto:team@bluestarholdingsinternational.com"}
-            className="ml-2 text-sm text-blue-600 underline"
+            className="ml-2 text-sm underline"
           >
             Email
           </Link>
@@ -54,7 +54,7 @@ export default function Footer() {
             href={"https://www.instagram.com/bsre_consulting/"}
             rel="noopener noreferrer"
             target="_blank"
-            className="text-hyperlink ml-2 text-sm"
+            className="ml-2 text-sm underline"
           >
             Instagram
           </Link>
@@ -65,7 +65,7 @@ export default function Footer() {
             href={"https://www.facebook.com/61572853814002"}
             rel="noopener noreferrer"
             target="_blank"
-            className="text-hyperlink ml-2 text-sm"
+            className="ml-2 text-sm underline"
           >
             Facebook
           </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
             href={"https://x.com/BSRE_Consulting"}
             rel="noopener noreferrer"
             target="_blank"
-            className="text-hyperlink ml-2 text-sm"
+            className="ml-2 text-sm underline"
           >
             X, formerly known as Twitter
           </Link>
@@ -85,7 +85,7 @@ export default function Footer() {
           <FaLinkedin color="#ffffff" />
           <Link
             href={"https://www.linkedin.com/company/bluestar-consulting"}
-            className="text-hyperlink ml-2 text-sm"
+            className="ml-2 text-sm underline"
             rel="noopener noreferrer"
             target="_blank"
           >

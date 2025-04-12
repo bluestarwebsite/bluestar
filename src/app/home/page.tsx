@@ -8,8 +8,7 @@ import Contact from "@/components/contact";
 import Footer from "@/components/footer";
 import { useIsMobile } from "@/lib/hooks";
 import NavBar from "@/components/navbar";
-import { HoverButton } from "@/components/button";
-import { ChartLine } from "lucide-react";
+import { HoverButton, InactiveHover } from "@/components/button";
 
 const tex = localFont({
   src: [
@@ -262,25 +261,29 @@ export default function HomePage() {
         <div
           className={`${isMobile ? "flex-col" : "h-[30vh] flex-row"} mx-auto flex justify-center`}
         >
-          <HoverButton
+          <InactiveHover
             title="Real Estate Developers"
             desc="Tailored insights, feasibility & financial modeling for your next project"
             link="/redev"
+            img="boutiquebg.webp"
           />
           <HoverButton
             title="GovCon"
             desc="Compliant underwriting & execution support for government contracts"
             link="/govcon"
+            img="bespokebg.webp"
           />
-          <HoverButton
+          <InactiveHover
             title="Commercial Brokers"
             desc="Market data & institutional-grade valuations for your clients’ deals"
             link="/commercial"
+            img="integrativebg.webp"
           />
-          <HoverButton
+          <InactiveHover
             title="Private Equity Investors"
             desc="Optimized portfolio strategies & risk analysis for CRE investments"
             link="/privequi"
+            img="topsplashbg.webp"
           />
         </div>
       </section>

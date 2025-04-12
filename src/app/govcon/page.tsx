@@ -59,7 +59,7 @@ export default function GovConPage() {
           <div
             className={`ml-auto flex ${isMobile ? "mb-auto h-max w-full" : "h-full w-[40%]"} flex-col justify-center`}
           >
-            <p className="mb-2 text-xl font-semibold text-brand-blue">
+            <p className="mb-2 text-xl font-semibold text-white">
               Respond to RFPs with Confidence – Book a Free Consultation Today
             </p>
             <Button
@@ -70,53 +70,55 @@ export default function GovConPage() {
           </div>
         </div>
       </section>
-      <section
-        className={`flex h-max w-screen flex-col ${isMobile ? "gap-2 p-5" : "gap-8 p-20"}`}
-      >
-        <div className="flex flex-col">
-          <h1
-            className={`mb-5 ${isMobile ? "text-2xl" : "text-center text-5xl"} font-bold text-white`}
-          >
-            Where Precision Meets Execution
-          </h1>
-          <h2
-            className={`${isMobile ? "text-lg" : "text-center text-2xl"} font-bold text-brand-gray`}
-          >
-            Why Clients Choose BlueStar
-          </h2>
-          <p
-            className={`${isMobile ? "text-sm" : "text-md mx-auto w-2/3 text-center"} font-semibold text-brand-gray`}
-          >
-            GovCon real estate demands compliance, intelligence, and strategic
-            execution — we deliver all three. From feasibility studies to
-            execution oversight, we blend industry expertise with a commitment
-            to high standards — delivering insights and strategies that drive
-            success.
-          </p>
-        </div>
+      <section className={`flex h-max w-screen flex-col bg-[url(/whybg.webp)]`}>
         <div
-          className={`${isMobile ? "w-full" : "mx-auto"} flex flex-col gap-y-2`}
+          className={`flex h-max w-full flex-col bg-brand-bg bg-opacity-80 ${isMobile ? "gap-2 p-5" : "gap-8 p-20"}`}
         >
-          <HiddenCard
-            title="On-Demand GovCon Experts"
-            subtext="We prepare the analysis & documentation you need before you ask."
-            text="Bluestar Consulting delivers tailored, data-driven solutions that go beyond standardized reports, offering in-depth market analysis, financial modeling, and execution oversight that aligns with each project’s unique challenges."
-          />
-          <HiddenCard
-            title="Government-Aligned Financial Models"
-            subtext="RFP-ready underwriting & feasibility studies tailored for GovCon."
-            text="Unlike larger firms that rely on templated solutions, we take a personalized, transparent approach, ensuring that every recommendation is customized to the nuances of your project."
-          />
-          <HiddenCard
-            title="SAM.gov Accredited Partner"
-            subtext="Certified to provide third-party validation agencies trust."
-            text="Our team’s background spans real estate finance, analytics, and development, allowing us to provide institutional-grade insights while maintaining the flexibility and responsiveness needed. From identifying undervalued opportunities to ensuring regulatory compliance and execution efficiency, our goal is simple: help you make informed decisions, reduce uncertainty, and maximize project success."
-          />
-          <HiddenCard
-            title="Risk Reduction Strategies"
-            subtext="Pre-development assessments that flag financial & operational risks early."
-            text="With a foundation built on integrity, precision, and collaboration, Bluestar Consulting serves as a trusted North Star, guiding our clients through complex real estate deals."
-          />
+          <div className="flex flex-col">
+            <h1
+              className={`mb-5 ${isMobile ? "text-2xl" : "text-center text-5xl"} font-bold text-white`}
+            >
+              Where Precision Meets Execution
+            </h1>
+            <h2
+              className={`${isMobile ? "text-lg" : "text-center text-2xl"} font-bold text-brand-gray`}
+            >
+              Why Clients Choose BlueStar
+            </h2>
+            <p
+              className={`${isMobile ? "text-sm" : "text-md mx-auto w-2/3 text-center"} font-semibold text-brand-gray`}
+            >
+              GovCon real estate demands compliance, intelligence, and strategic
+              execution — we deliver all three. From feasibility studies to
+              execution oversight, we blend industry expertise with a commitment
+              to high standards — delivering insights and strategies that drive
+              success.
+            </p>
+          </div>
+          <div
+            className={`${isMobile ? "w-full" : "mx-auto"} flex flex-col gap-y-2`}
+          >
+            <HiddenCard
+              title="On-Demand GovCon Experts"
+              subtext="We prepare the analysis & documentation you need before you ask."
+              text="Bluestar Consulting delivers tailored, data-driven solutions that go beyond standardized reports, offering in-depth market analysis, financial modeling, and execution oversight that aligns with each project’s unique challenges."
+            />
+            <HiddenCard
+              title="Government-Aligned Financial Models"
+              subtext="RFP-ready underwriting & feasibility studies tailored for GovCon."
+              text="Unlike larger firms that rely on templated solutions, we take a personalized, transparent approach, ensuring that every recommendation is customized to the nuances of your project."
+            />
+            <HiddenCard
+              title="SAM.gov Accredited Partner"
+              subtext="Certified to provide third-party validation agencies trust."
+              text="Our team’s background spans real estate finance, analytics, and development, allowing us to provide institutional-grade insights while maintaining the flexibility and responsiveness needed. From identifying undervalued opportunities to ensuring regulatory compliance and execution efficiency, our goal is simple: help you make informed decisions, reduce uncertainty, and maximize project success."
+            />
+            <HiddenCard
+              title="Risk Reduction Strategies"
+              subtext="Pre-development assessments that flag financial & operational risks early."
+              text="With a foundation built on integrity, precision, and collaboration, Bluestar Consulting serves as a trusted North Star, guiding our clients through complex real estate deals."
+            />
+          </div>
         </div>
       </section>
       <section
@@ -215,7 +217,7 @@ function HiddenCard({
         </div>
       ) : (
         <>
-          <p className="text-semibold text-brand-blue">{text}</p>
+          <p className="text-semibold text-white">{text}</p>
           <div
             className="flex cursor-pointer flex-row justify-self-end"
             onClick={() => setOpen(false)}

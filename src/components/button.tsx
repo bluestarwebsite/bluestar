@@ -106,7 +106,7 @@ export function HoverButton({
   title,
   desc,
   link,
-  img,
+  img = "boutiquebg.webp",
 }: {
   title: string;
   desc: string;
@@ -128,11 +128,11 @@ export function HoverButton({
     );
   }
   return (
-    <div className="mx-2 h-max w-max bg-[url(/bespokebg.webp)] bg-cover bg-center">
+    <div className={`mx-2 h-max w-max bg-[url(/${img})] bg-cover bg-center`}>
       <div
         onMouseOver={() => setShow(true)}
         onMouseOut={() => setShow(false)}
-        className="flex h-[40vh] w-[15vw] flex-col bg-brand-bg bg-opacity-80 p-2"
+        className={`flex h-[40vh] w-[15vw] flex-col bg-brand-bg p-2 ${show ? "bg-opacity-80" : "bg-opacity-0"}`}
       >
         <p
           className={`mx-auto my-auto justify-self-start text-center text-white ${show ? "opactiy-100" : "opacity-0"}`}
@@ -143,6 +143,48 @@ export function HoverButton({
           <Link className={`text-white`} href={link}>
             {title}
           </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function InactiveHover({
+  title,
+  desc,
+  link,
+  img = "boutiquebg.webp",
+}: {
+  title: string;
+  desc: string;
+  link: string;
+  img?: string;
+}) {
+  const isMobile = useIsMobile();
+  if (isMobile) {
+    return (
+      <div className="m-2 mx-auto flex h-max w-2/3 flex-col gap-2 rounded-lg border border-brand-gray p-4">
+        <p className="text-pretty text-center text-white">{desc}</p>
+        <div className="mx-auto h-max w-max rounded-md bg-brand-blue px-4 py-2 text-center">
+          <Link className={`text-white`} href={link}>
+            {title}
+          </Link>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <div className={`mx-2 h-max w-max bg-[url(/${img})] bg-cover bg-center`}>
+      <div
+        className={`flex h-[40vh] w-[15vw] flex-col bg-brand-bg bg-opacity-80 p-2`}
+      >
+        <p
+          className={`mx-auto my-auto justify-self-start text-center text-white`}
+        >
+          Coming Soon!
+        </p>
+        <div className="mx-auto justify-self-end rounded-md bg-brand-blue p-2">
+          <p className={`text-white`}>{title}</p>
         </div>
       </div>
     </div>
